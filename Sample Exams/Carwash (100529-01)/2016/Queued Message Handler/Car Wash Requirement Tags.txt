@@ -1,0 +1,84 @@
+Simulation Interface Requirements
+
+ 
+Simulated Console Requirements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Configuration Database Requirements
+
+
+
+
+Initial State Requirements
+
+
+
+Wait for Start State Requirements
+
+
+
+
+
+Start State Requirements
+
+
+Wait for Vehicle Position State Requirements
+
+Wash Step Execution State Requirements
+
+
+Wash Step / Cycle Completion State Requirements
+
+
+Wash Exit State Requirements
+
+
+Wash Abort /Terminate State Requirements
+
+
+Error Handling Requirements
+
+
+
+
+[Covers: EH1B2]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

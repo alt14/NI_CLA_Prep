@@ -1,0 +1,889 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1252">
+<title>Actor Framework</title>
+<style>
+
+<!--
+
+/***************************************************/
+
+/* MINIMAL STYLES */
+
+/* The following section defines styles that every HTML Help project should need. */
+
+
+
+/* Specifies White Background color */
+
+body {background-color:#FFFFFF; font-family:Verdana, sans-serif; font-size:8pt; color: #000000;}
+
+
+
+/* The default style of P is red to alert you that you need to apply a style class, such as Body. */
+
+P { margin-top:6.00pt; margin-bottom:6.00pt;}
+
+
+
+BR { font-size:4.00pt; }
+
+
+
+/* Use H1 for all topic headings. */
+
+H1 { margin-top:3.00pt; margin-bottom:3.00pt; font-size:150%; font-weight:bold;  }
+
+
+
+/* Use H2 for second-level headings. */
+
+H2 { margin-top:9.00pt; margin-bottom:3.00pt; font-size:125%; font-weight:bold;  }
+
+
+
+/* Use H3 for third-level headings. */
+
+H3 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use H4 for fourth-level headings. */
+
+H4 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* H5 and H6 have the same definition as H4 because you should not need this level of heading in one topic. If you need to use H5 or H6, consider breaking up your topic into more than one topic. */
+
+H5 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+H6 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use the Body style class for normal paragraphs. */
+
+P.Body {  }
+
+
+
+/* Use the Anchor style class for graphic references on a line by themselves. */
+
+P.Anchor { font-size:125%;  }
+
+
+
+/* Use the Indent style classes to indent a paragraph. If you need to indent text below a list item, use <br><br> to start the new paragraph within the same set of <li></li> tags. If you need to indent a list within another list, nest the indented list within the first list's set of <ol></ol> or <ul></ul> tags. */
+
+P.Indent1 { margin-left:12.00pt; margin-bottom:3.00pt;  }
+
+P.Indent2 { margin-left:24.00pt; margin-bottom:3.00pt;  }
+
+P.Indent3 { margin-left:36.00pt; margin-bottom:3.00pt;  }
+
+P.Indent4 { margin-left:48.00pt; margin-bottom:3.00pt;  }
+
+P.Indent5 { margin-left:60.00pt; margin-bottom:3.00pt;  }
+
+
+
+/* Use the LI style for all list items. */
+
+LI { margin-top:3.00pt; margin-bottom:3.00pt; }
+
+
+
+/* Use the OL style for numbered lists. You do not have to type the number for each list item in a numbered list. */
+
+OL { margin-left:22.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the OL style for numbered lists. Nested lists will use the bullet types according to the nesting scheme below */
+
+ol ol {list-style-type:lower-alpha}
+
+ol ol ol {list-style-type:decimal}
+
+ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+
+
+
+
+/* Use the EquationNum style class for numbered lists of equations. You do not have to type the number for each list item in a numbered list. */
+
+OL.EquationNum { margin-left:36.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the List-abc style class for lettered lists. You do not have to type the letter for each list item in a lettered list. */
+
+OL.List-abc { margin-left:22.00pt; text-indent:0pt; list-style-type:lower-alpha; }
+
+
+
+/* Use the UL style for bulleted lists. You do not have to type the bullet for each list item in a bulleted list. */
+
+UL { margin-left:22.00pt; text-indent:0pt; margin-top:3.00pt; margin-bottom:3.00pt; list-style-type: disc; }
+
+
+
+/* Use the UL style for bulleted lists. Nested lists will use the bullet types according to the nesting scheme below. */
+
+ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul ul ul ul{list-style-image: none;list-style-type: circle}
+
+
+
+/* Use the List-Box style class for bulleted lists with boxes instead of bullets. You do not have to type the box for each list item in a box list. */
+
+UL.List-Box { list-style-image: none;list-style-type: square}
+
+
+
+Table { font-size:100%; }
+
+
+
+/* Use the Borderless style class for tables that do not need borders, such as for 2-column or 3-column lists with no headings. */
+
+Table.Borderless { border:none; }
+
+
+
+/* Use the Bordered style class for tables that need borders. */
+
+Table.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; border-collapse: collapse; }
+
+
+
+/* Use the TD style for table cells in Borderless or Borderless-Wide tables. */
+
+TD { vertical-align:top; padding:3px; }
+
+
+
+/* Use the Bordered style class for table headings and cells in Bordered or Bordered-Wide tables. */
+
+.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; }
+
+
+
+/* Use the Icon style class for table cells that contain note, caution, warning, or tip icons, or LabVIEW datatype terminals. */
+
+TD.Icon { width:40px; }
+
+
+
+/* Use the TH style for table heading cells in Borderless or Borderless-Wide tables. */
+
+TH { font-weight:bold; padding:3px; }
+
+
+
+/* Use the Left-Align style class for table headings and cells that you want to left align instead of center align. */
+
+.Left-Align { text-align:left; }
+
+
+
+/***************************************************/
+
+/* CHARACTER FORMATS */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* CHARACTER FORMATS Updated to conform with the CSE HTML Validator Pro */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* Use the Dark-Red format for warnings or cautions. */
+
+.Dark-Red { color: #800000 }
+
+
+
+/* Use the Monospace format for code or syntax examples. */
+
+.Monospace { font-family: Courier New; font-size: 100%; }
+
+
+
+/* Use the Monospace-Bold format for messages and responses that the computer automatically prints to the screen. */
+
+.Monospace-Bold { font-family: Courier New; font-weight: bold; font-size: 100%; }
+
+
+
+/* Use the Monospace-Italic format to denote text that is a placeholder for a word or value that the user must supply. */
+
+.Monospace-Italic { font-family: Courier New; font-style: italic; font-size: 100%; }
+
+
+
+/* small class */
+
+.smallFont { font-size:87.5%; }
+
+
+
+/* Bold class */
+
+.Bold { font-weight: bold; }
+
+
+
+/* Italic class */
+
+.Italic { font-style: italic; }
+
+
+
+/* Use the Platform format to denote a specific platform. */
+
+.Platform { color: #0000FF; font-weight: bold; }
+
+
+
+/* Use the Symbol format for characters not in the Verdana character set. Use this format sparingly. When possible, you should use the correct ASCII code for the symbol or use a graphic to recreate the symbol. */
+
+.Symbol { font-family: Symbol; }
+
+
+
+/* Use the Red-text format to call attention to text that needs  information added or edited by techcomm */
+
+.Red-text {color: #FF0000;}
+
+
+
+/* Use the Green-Underline format for the green defintion in the conventions topic */
+
+.Green-Underline {color: #007700; text-decoration : underline;}
+
+
+
+/* Use the glossButton format for the glossary buttons used in the glossary topic */
+
+.glossButton { font-size:12px; color:black; }
+
+
+
+/* Use for text sections and hyphenated words that should not break at line wraps */
+
+.nobreak{white-space:nowrap}
+
+
+
+/* Use for template instructions. */
+
+.instructions{color:red; font-style:italic}
+
+
+
+/*Use for words and text sections that do not need to be localized */
+
+.DNL { }
+
+
+
+/* The following styles define the color of links. */
+
+a:link { color: #007700 }
+
+a:visited { color: #7F007F }
+
+a:link:hover { color: #FF0000 }
+
+a:link:active { color: #FF0000 }
+
+
+
+/***************************************************
+
+** Forms */
+
+
+
+form { margin-top:0pt; margin-bottom:3pt; color:black; }
+
+select { font-size:100%; color:black; }
+
+
+
+/*******************************************************
+
+** Margins **
+
+** Use these styles for block-level elements inside tables cells or list items where you do not want extra padding at the top or bottom of a cell. */
+
+.noTopMargin { margin-top:0pt;}
+
+.noBottomMargin { margin-bottom:0pt;}
+
+
+
+/***************************************************
+
+** CODE STYLES **
+
+** The following section defines styles that you need to format entire sections of code or syntax examples. If you have just a few words you need to format as a code or syntax example, use the Monospace character format. */
+
+
+
+P.Code { margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code1 { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code2 { margin-left:24.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code3 { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+-->
+</style>
+<script type="text/javascript"> // define hyperlinks and function for launching a URL in a browser
+
+var L_case_structure = "http://digital.ni.com/express.nsf/bycode/ex746b";
+var L_while_loops = "http://digital.ni.com/express.nsf/bycode/ext9fg";
+var L_shift_registers = "http://digital.ni.com/express.nsf/bycode/exar5k";
+var L_enums = "http://digital.ni.com/express.nsf/bycode/ex3zj7";
+var L_typedefs = "http://digital.ni.com/express.nsf/bycode/exicsz";
+var L_event_structures = "http://digital.ni.com/express.nsf/bycode/exfjrp";
+var L_value_change_events = "http://digital.ni.com/express.nsf/bycode/exb2cb";
+var L_error_handling = "http://digital.ni.com/express.nsf/bycode/exfbp3";
+var L_clusters = "http://digital.ni.com/express.nsf/bycode/exwemq";
+var L_control_refnums = "http://digital.ni.com/express.nsf/bycode/exend6";
+var L_parallel = "http://digital.ni.com/express.nsf/bycode/exxaf6";
+var L_state_machines = "http://digital.ni.com/express.nsf/bycode/ex85gn";
+var L_user_events = "http://digital.ni.com/express.nsf/bycode/exgpiv";
+var L_queues = "http://digital.ni.com/express.nsf/bycode/extwnb";
+var L_AF_dialog = "http://digital.ni.com/express.nsf/bycode/ex9nn9";
+var L_AF_VIs = "http://digital.ni.com/express.nsf/bycode/ex3umz";
+var L_LVOOP = "http://digital.ni.com/express.nsf/bycode/exr4sb";
+var L_Notifiers = "http://digital.ni.com/express.nsf/bycode/exyhme";
+var NO_LOC_AF_Community = "http://digital.ni.com/express.nsf/bycode/exwhyc";
+var NO_LOC_MAL_MVC = "http://digital.ni.com/express.nsf/bycode/exr345";
+var NO_LOC_Large_Apps = "http://digital.ni.com/express.nsf/bycode/exaed9";
+var L_Adv_Arch = "http://digital.ni.com/express.nsf/bycode/exq58e";
+var L_Core_3 = "http://digital.ni.com/express.nsf/bycode/exnnfy";
+var L_OO_Design = "http://digital.ni.com/express.nsf/bycode/exs545";
+var L_calling_convention = "http://digital.ni.com/express.nsf/bycode/exgs3x";
+var L_trademarks = "http://digital.ni.com/express.nsf/bycode/rdtrad";
+var L_patents = "http://digital.ni.com/express.nsf/bycode/rdlv17";
+var L_walkthrough = "http://digital.ni.com/express.nsf/bycode/DW_AF";
+
+function WWW(url) 
+	{
+	var urlWindow;
+	urlWindow = window.open(url, "New", "directories=yes,location=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes,toolbar=yes");
+	}
+</script>
+
+</HEAD>
+<body>
+<h1>Actor Framework</h1>
+
+<p class="Body">LabVIEW 2012</p>
+
+<p class="Body">The Actor Framework is a template for creating LabVIEW applications that consist of multiple, independent tasks that need to communicate with each other. This framework was designed to address common development scenarios that can lead to significant duplication of code when extending functionality or adding additional processes.</p>
+
+<p class="Body">Each actor is defined by a LabVIEW class that is instantiated by launching an instance of the actor, which is represented by a LabVIEW object.  All descendants of the base actor class (Actor) contain the Actor Core method, which serves as a queued message handler. This VI receives and responds to messages and data sent to it by other actors in the system. However, because actors are LabVIEW classes, actors are far more reusable and scalable than traditional queued message handlers.</p>
+
+<p class="Body">This template includes three actors (Application, Alpha, and Beta) and shows how they communicate with each other.</p>
+
+<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>Note</strong>&nbsp;&nbsp; This template makes extensive use of LabVIEW classes. Designing an application with the Actor Framework requires familiarity with principles of object-oriented programming in LabVIEW. This document provides the information necessary to understand and modify the Actor Framework template. For more information about designing applications with the Actor Framework, refer to the Actor Framework Whitepaper in the Project Documentation folder of the <strong>Project Explorer</strong> window.</td></tr></table>
+
+<h2>Example</h2>
+<p class="Body">Refer to the Feedback Evaporative Cooler sample project, available from the <strong>Create Project</strong> dialog box, for an example of adapting this template to an application.</p>
+
+<h2>Developer Walkthrough</h2>
+<p class="Body">Refer to <a href="javascript:WWW(L_walkthrough)">ni.com</a> for a developer walkthrough of this template.</p>
+
+<h2>System Requirements</h2>
+
+<p class="Body">LabVIEW Base, Full, or Professional Development System</p>
+
+<h2>Use Cases</h2>
+
+<p class="Body">The Actor Framework is suitable for applications where you find yourself duplicating large amounts of code but making small, specific tweaks to each copy. Developing medium-to-large applications in this way is difficult, especially if you intend to maintain and extend the application.</p>
+
+<p class="Body">For example, consider an measurement application that needs to continuously take both strain and resistance measurements. A traditional approach would be to create a queued message handler that takes a strain measurement, copy this queued message handler, modify the copy to take a resistance measurement, and then combine both queued message handlers into a single application. This approach results in two queued message handlers that share a large amount of code but each have some specific differences. If you change one part of the program, you must track and duplicate these changes in the other one.</p>
+
+<p class="Body">In using the Actor Framework approach, you would start by identifying functionality that both types of measurements share, such as the following steps:</p>
+
+<ul>
+	<li>Acquire a reference to the hardware device</li>
+	<li>Continuously take a measurement</li>
+	<li>Continuously process the measurement</li>
+	<li>Continuously display the processed measurement to the user, along with a history of previous measurements</li>
+	<li>Close the reference to the hardware device</li>
+</ul>
+
+<p class="Body">Each of these steps is similar to a state, or message diagram, in a queued message handler. Although these steps are the same for both kinds of measurements, the specific commands involved are different for each type of measurement. The hardware device that is used is different, the VI that acquires the data is different, the processing applied to the measurement is different, and so on.</p>
+
+<p class="Body">The object-oriented approach of the Actor Framework addresses the scalability and reuse issues while providing additional functionality. Using the Actor Framework, you can encapsulate the generic functionality described above in a Measurement actor. The Measurement actor, which is a LabVIEW class, would not be able to take a measurement itself; instead, its member VIs would define, in general terms, what kinds of steps are necessary. Each step would correlate to a member VI in the class.</p>
+
+<p class="Body">Because the Measurement actor is a LabVIEW class, you would then create two child actors that inherit from Measurement for specific functionality: a Strain actor and a Resistance actor. These children would inherit the functionality of their parent but would add specific strain- or resistance-related operations, thus enabling these actors to actually take, process, and display continuous measurements. This approach maximizes code reuse by encapsulating generic functionality into a single point&#8212;the Measurement actor, leaving its children to define specific commands.</p>
+
+<p class="Body">Additionally, because each actor is a separate entity, applications can load actors into memory dynamically. For example, you could have one application that, at the click of a button, is able to take a strain or resistance measurement. Implementing this kind of functionality without using the Actor Framework is difficult, time-consuming, and error-prone, especially if you plan to modify or extend the application in the future. The Actor Framework, meanwhile, is designed for these kinds of applications.</p>
+
+<h2>Running this Template</h2>
+
+<p class="Body">Complete the following steps to run this template:</p>
+
+<ol>
+	<li>In the <strong>Project Explorer</strong> window, open and run Application Launcher.lvlib:Splash Screen.vi.</li>
+	<li>Watch the <strong>Event Log</strong> for the messages that each nested actor (Alpha and Beta) sends to the top-level actor (Application).</li>
+	<li>Click <strong>Send Alpha Message</strong>. The Application actor sends a message to the Alpha actor. Watch the <strong>Event Log</strong> for a response.</li>
+	<li>Click <strong>Send Beta Message</strong>. The Application actor sends a message to the Beta actor. Watch the <strong>Event Log</strong> for a response.</li>
+	<li>Stop the application by clicking <strong>Stop All</strong>.</li>
+</ol>
+
+<h2>Understanding the Components of the Actor Framework</h2>
+
+<p class="Body">The Actor Framework consists of <em>actors</em> and <em>messages</em>. Messages are delivered in <em>message queues</em>. To minimize errors and maximize application reliability, the Actor Framework restricts which actors can send messages to one another.</p>
+
+<h3>Actors</h3>
+
+<p>An actor is a LabVIEW class that represents the state of some task. All actor classes descend from the Actor class, which is included with LabVIEW. This class has three main components:</p>
+<ul>
+	<li><strong>The actor's core VI</strong>&#8212;The core VI is a specially-named method, Actor Core, that defines the continuous behavior of the actor. This method defines the message-handling behavior of all actors. Descendants of this class override the method to display a user interface for the actor, append parallel loops, and launch nested actors.</li>
+	<li><strong>The actor's specific methods</strong>&#8212;These VIs are members of the LabVIEW class that defines the actor. Typically, each method corresponds to a task the actor can perform. The ancestor class, Actor, includes several methods that are specifically designed to be overridden by descendants.</li>
+	<li><strong>The actor's messages</strong>&#8212;A message is a LabVIEW class that defines what instruction an actor can receive and how it responds to that instruction. Other actors send these messages to an actor to get the actor to invoke one of its methods. When creating an application based on the Actor Framework, you generally define a message for each method of the actor. All messages descend from the Message class, which is included with LabVIEW. <br><br>Although messages are not part of actors themselves, you generally define an actor's messages while defining the actor itself. Because of this close relationship, this template groups actors and messages for that actor together in a single project library.</li>
+</ul>
+
+<p class="Body">For example, the following screenshot shows a project library that contains one actor (Alpha, represented by the <strong>Alpha</strong> class) and one message (the <strong>Alpha Task Msg</strong> class).</p>
+
+<img src="loc_alpha_class.png">
+
+<p class="Body">The screenshots above shows the following files that are related
+to this actor:</p>
+
+<ul>
+<li><strong>The actor's core VI</strong> is <strong>Actor Core</strong>. This method overrides its ancestor Actor Core method, defining a continuous behavior that is specific to the Alpha actor.</li>
+<li><strong>The actor's methods</strong> are <strong>Stop Core</strong> and <strong>Task</strong>. These execute under the following conditions:
+	<ul>
+		<li><strong>Stop Core</strong> executes when the Alpha actor receives the Stop message. This method overrides the Stop Core method in the Actor class to define behavior that is specific to the Alpha actor.</li>
+		<li><strong>Task</strong> executes when the Alpha actor receives the Task message. This method is specific to the Alpha actor; that is, this method is not defined in the Actor class.</li>
+	</ul>
+</li>
+<li><strong>The actor's message</strong> is contained in the <strong>Messages for Alpha</strong> folder. This actor defines only one message, <strong>Alpha Task Msg</strong>, which is descended from the Message class and contains the following members:
+	<ul>
+		<li>The <strong>Alpha Task Msg</strong> control is data this message carries.</li>
+		<li><strong>Send Alpha Task</strong> is the VI that other actors use to send the Task message to the Alpha actor. This VI creates an instance of the message and populates that message with some data.</li>
+		<li><strong>Do</strong> defines what the Alpha actor does when it receives the Task message. In this template, the Do VI instructs Alpha to execute its Task method.</li>
+	</ul>
+	
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>Note</strong>&nbsp;&nbsp;
+	<ul>
+	<li>The Alpha class has a Stop Core method that executes when it receives the Stop message; however, this template does not define a Stop message. This message (the Stop Msg class) is defined in the Actor Framework itself; all actors inherit the ability to handle this message from the Actor class. Descendant classes, such as Alpha, need only to override the Stop Core method.</li>
+	<li>The Alpha class does not need to define a process for receiving and responding to messages. This behavior is defined in the Actor Core method of the Actor class and is inherited by all actors.</li>	
+	</ul>
+</td></tr></table>
+</li>
+</ul>
+
+<h3>Minimizing Communication Errors Between Actors</h3>
+
+<p class="Body">By default, a given actor X can send messages to only the following actors:</p>
+
+<ul>
+	<li><strong>The caller</strong>&#8212;The VI, which can be an actor, that launched X</li>
+	<li><strong>Nested actors</strong>&#8212;Any actors that X launches</li>
+</ul>
+<p class="Body">This restricted order of communication is called a <em>task tree</em>. It means there is only one communication path to manage, making it easy to write code that ensures that other actors have a chance to hear and respond messages before shutting down.</p>
+
+<p class="Body">For example, this template defines the following task tree:</p>
+
+<img src="loc_task_tree.png">
+
+<p class="Body">where <em>Project_Name</em> is the name you give the project. </p>
+
+<p class="Body">This diagram indicates that the Application<em> </em>actor launches both the Alpha and Beta actors. Therefore, the Application<em> </em>actor is referred to as the <em>top-level actor</em>. The top-level actor is the single actor from which all other actors are launched. The top-level actor itself is launched from a regular VI.</p>
+
+<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>Note</strong>&nbsp;&nbsp;The task tree hierarchy is different from the LabVIEW class inheritance hierarchy. Although Alpha and Beta are launched from Application, the Alpha and Beta classes do not inherit from the <em>Project_Name</em> class.</td></tr></table>
+
+<p class="Body">Given this task tree, the following communication rules are in effect:</p>
+
+<ul>
+	<li>Application can send messages to both Alpha and Beta</li>
+	<li>Alpha can send messages only to Application</li>
+	<li>Beta can send messages only to Application</li>
+</ul>
+
+<p class="Body">The implication is that neither Alpha nor Beta can send messages to each other. Alpha must send a message to Application, which decides whether Beta needs to hear the message and takes the appropriate action. Again, restricting the communication path helps you write more manageable and error-free code.</p>
+
+<p class="Body">The following block diagram shows the code, located in the Actor Core method of the <em>Project_Name</em> class, that defines the task tree by launching Alpha and Beta:</p>
+
+<img src="loc_launch_nested_actors.png">
+
+<h3>Message Queues</h3>
+
+<p class="Body">Messages are sent by using queues. To enforce the task tree, each actor initially has access to only the following two message queues:</p>
+
+<ul>
+	<li>The queue the actor uses to send messages to its caller</li>
+	<li>The queue the actor uses to send messages to itself</li>	
+</ul>
+
+<p class="Body">Access to a queue is different from the queue itself. To prevent other actors from releasing its message queue, an actor does not share the queue itself. Instead, the Actor Framework introduces the concept of an <em>enqueuer</em>.
+An enqueuer is a reference that enables an actor to send messages to a queue but not to do anything else with it.</p>
+
+<p class="Body">For example, consider an actor X that already is running. When it launched, X obtained a queue that it uses to send messages to itself. From X's point of view, this is the <em>to-self queue</em>. If X launches Y, the following steps occur:</p> 
+
+<ol>
+	<li>X is the caller of Y, so X gives Y access to X's to-self queue. From the Y's point of view, this queue is the <em>to-caller</em> queue. The queue is the same, but there are two different viewpoints.</li>
+	<li>Y obtains a queue for sending messages to itself. From the Y's point of view, this queue is the <em>to-self</em> queue.</li>
+	<li>Y gives X access to the queue obtained in step 2.</li>
+</ol>
+
+<p class="Body">Y now has access to two queues:</p>
+
+<ul>
+	<li><strong>To-caller queue</strong>&#8212;The queue that X gave Y access to in step 1. Recall that this is the same queue that X uses to communicate with itself.</li>
+	<li><strong>To-self queue</strong>&#8212;The queue that Y obtained for itself in step 3.</li>
+</ul>
+
+<p class="Body">The following diagram shows how these two actors can communicate with each other:</p>
+
+<img src="loc_Actor_and_Queues_Flowchart.gif" border="1">
+
+<p class="body">X now can send messages to itself (1) and Y (2). Y can send messages to X (3) and to itself (4). Although there are four directions a message can go in, only two queues are involved. Additionally, neither actor can release the queue of the other. Instead, each actor releases its own queue as part of its shutdown procedure.</p>
+
+<h2>Understanding the Project Hierarchy</h2>
+
+<p class="Body">After you create a project based on this template, LabVIEW displays the following hierarchy:</p>
+<ul>
+	<li><strong>Project Documentation</strong>&#8212;Contains documentation about this template. As you develop the project and distribute it, National Instruments recommends you update this documentation accordingly.</li>
+	<li>The <strong><em>Project_Name</em> Launcher</strong> library&#8212;Files related to launching the top-level application.
+		<ul>
+			<li><strong>Localization</strong>&#8212;Facilitates translation of strings by centralizing all user-facing strings in one VI.</li>
+			<li><strong>Splash Screen</strong>&#8212;Displays a splash screen while executing the Load App VI.</li>
+		</ul>
+	</li>
+	<li>The <strong><em>Project_Name</em> library</strong>&#8212;Contains the Application actor and the message it can receive.
+		<ul>
+			<li><strong>Messages for <em>Project_Name</em></strong>&#8212;Contains the message that the Application actor can receive.
+				<ul>
+					<li>The <strong>Log Event Msg</strong> class&#8212;Defines a message that instructs the Application actor to update its event log with a string.
+						<ul>
+							<li><strong>Send Log Event</strong>&#8212;Sends the Log Event message to the Application actor, along with a string as data. The Alpha and Beta actors both send this message to the Application actor; therefore, you can find this VI called from the Task method of the Alpha and Beta actors.</li>
+							<li><strong>Do</strong>&#8212;Instructs the Application actor to invoke its Log Event.vi method, using data carried with the Send Log Event VI.</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>The <strong><em>Project_Name</em></strong> class&#8212;The Application actor.
+				<ul>
+					<li><strong>Localization</strong>&#8212;Facilitates translation of strings by centralizing all user-facing strings in one VI.</li>
+					<li><strong>Actor Core</strong>&#8212;The actor's core VI, which executes the following tasks:
+						<ul>
+							<li>Launches the Alpha and Beta actors.</li>
+							<li>Gives these actors access to the queue for sending messages to the Application actor.</li>
+							<li>Displays a UI.</li>
+							<li>Waits for front panel events.</li>
+							<li>Responds to those events by sending messages to the Alpha and Beta actors.</li>					
+						</ul>					
+					</li>
+					<li><strong>Read Config File</strong>&#8212;Reads an integer from a configuration file.</li>
+					<li><strong>Stop Core</strong>&#8212;Sends a Stop message to both the Alpha and Beta actors.</li>
+					<li><strong>Log Event</strong>&#8212;Scrolls the<strong> Event Log</strong> text box on the front panel of the Actor Core VI in the <em>Project_Name</em> class.</li>
+					<li><strong>Load App</strong>&#8212;Launches the <em>Project_Name</em> actor, thus launching the application itself, and posts the loading status to the Splash Screen VI.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>The <strong>Alpha Actor</strong> library&#8212;Contains the Alpha actor and the messages it can receive.
+		<ul>
+			<li><strong>Messages for Alpha</strong>&#8212;Contains messages that the Alpha actor can receive.
+				<ul>
+					<li>The <strong>Alpha Task Msg</strong> class&#8212;Defines a message that instructs the Alpha actor to execute its Task.vi method.
+						<ul>
+							<li><strong>Send Alpha Task</strong>&#8212;Sends the Task message to the Alpha actor with some data attached. You can find this VI called from Actor Core method of the <em>Project_Name</em> class.</li>
+							<li><strong>Do</strong>&#8212;Instructs the Alpha actor to run its Task method, using the data carried with the Send Alpha Task VI.</li>
+							<li><strong>Write Data</strong>&#8212;Bundles an integer into the Task message the Alpha actor sends itself from its Actor Core method.</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>The <strong>Alpha</strong> class&#8212;The Alpha actor.
+				<ul>
+					<li><strong>Localization</strong>&#8212; Facilitates translation of strings by centralizing all user-facing strings in one VI.</li>
+					<li><strong>Actor Core</strong>&#8212;Instructs the Alpha actor to execute its Task.vi method every <em>n</em> milliseconds with -1 as the data. Receiving the Task message instructs the Alpha actor to execute its Task method with different data instead of -1. </li>
+					<li><strong>Stop Core</strong>&#8212;Stops the timed message (that is defined in the Actor Core method) from being delivered.</li>
+					<li><strong>Task</strong>&#8212;Sends a Log Event message to the Application actor along with an integer.</li>
+				</ul>
+			</li>				
+		</ul>			
+	</li>
+	<li>The <strong>Beta Actor</strong> library&#8212; Contains the Beta actor and the message it can receive. The structure and functionality of these files are similar to the functionality of the files in Alpha Actor.lvlib, with two exceptions:
+		<ul>
+			<li>The Actor Core method in the Beta class behaves differently than the Actor Core method in the Alpha class.</li>
+			<li>The Beta Task Msg class does not contain a Write Data method.</li>
+		</ul>
+	</li>
+</ul>
+
+<h2>Modifying this Template</h2>
+
+<h3>Determining Your Needs</h3>
+
+<p class="Body">An actor is a LabVIEW class. Like any LabVIEW class, before you create it, you must understand what the actor is and what the actor does.</p>
+
+<p class="Body">To determine what actors you need to create and what each one does, think about the independently-running tasks in your application and what actions each task can perform. For example, consider a task that acquires a continuous measurement from an analog device. This task needs to know how to connect to the hardware, acquire a measurement continuously, write safe values to the hardware, and disconnect from the hardware. An actor for this task might have one method for each of these actions. <a href="#create_actor">Create one actor</a> for each task you identify.</p>
+
+<p class="Body">After you determine what an actor needs to do, determine which actions happen continuously while the actor is running and which actions happen only after receiving a message from another actor. Actions that happen continuously should be added to the Actor Core method of the actor. Actions that happen in response to a message should be represented as a method of the actor's class. Use this information to <a href="#define_actor_behavior">define the behavior of each actor</a>. Then, <a href="#create_message">create the messages</a> that will instruct the actor to invoke each of its methods.</p>
+
+<a name="define_actor_behavior"></a><h3>Defining the Behavior of an Actor</h3>
+
+<p class="Body">The Actor Framework provides two ways of defining the behavior of an actor. You must decide which of the following ways is appropriate:</p>
+
+<ul>
+	<li>For behavior that should occur in response to a message, <a href="#create_method">create methods for the actor</a> and then <a href="#create_message">create the message that will trigger that method.</a><br><br>For example, acquiring a single measurement from a hardware device is a behavior that should occur in response to a message. This behavior has a distinct beginning and end and does not need to execute continuously. The duration of this behavior is shorter than the duration of the actor itself.</li>
+	<li>For behavior that should occur continuously while the actor is running, <a href="#override_actor_core">override the Actor Core method</a>.<br><br>For example, monitoring a user interface and responding to events is a behavior that should occur continuously. This behavior needs to happen during the entire time the actor is running; that is, the duration of the behavior is equal to the duration of the actor itself.</li>
+</ul>
+
+<a name="create_method"></a><h4>Creating Methods for Actors</h4>
+
+<ol>
+	<li>Create a member VI in the class. Remember that some methods of the ancestor Actor class are designed to be overridden.</li>
+	<li><a href="#create_message">Create the message</a> that instructs the actor to invoke that method.</li>
+	<li><a href="#send_message">Ensure another part of the application sends messages to the actor</a>.</li>
+</ol>
+
+<a name="override_actor_core"></a><h4>Defining an Actor's Continuous Behavior </h4>
+<p class="Body">The Actor Core method of the Actor class contains the code that processes and reacts to messages sent to the actor. Each actor inherits this behavior. Actors can do other things continuously while processing messages. To define an actor's continuous behavior, override the Actor Core method in a descendant class.</p>
+
+<p class="Body">The following screenshot shows that all three actors in this template override the Actor Core method:</p>
+
+<img src="loc_actor_core_override.png">
+
+<a name="create_actor"></a><h3>Creating an Actor</h3>
+
+<ol>
+	<li>Create a LabVIEW class and set it to inherit from <span class="DNL">Actor Framework.lvlib:Actor.lvclass</span>.</li>
+	<li><a href="#define_actor_behavior">Define the behavior of the actor</a>.</li>
+	<li><a href="#create_message">Create messages</a> the actor can receive.</li>
+	<li>Ensure another part of the application <a href="#launch_actor">launches the actor</a>.</li>
+	<li>Ensure other parts of the application <a href="#send_message">send messages to the actor</a>.</li>
+	<li>Create code that <a href="#stop_actor">stops the actor</a>.</li>
+</ol>
+
+<a name="stop_actor"></a><h3>Stopping an Actor</h3>
+
+<p class="Body">To stop an actor, send the actor a Stop message by using one of the following VIs:</p>
+
+<ul>
+	<li>Send Normal Stop</li>
+	<li>Send Emergency Stop</li>
+	<li>Send Normal or Emergency Stop</li>
+</ul>
+
+<p class="Body">These methods are available on the <strong>Functions</strong> palette. Refer to the Stop Core method of the <em>Project_Name</em> class for an example of stopping an actor.</p>
+
+<a name="launch_actor"></a><h3>Launching an Actor</h3>
+
+<p class="Body">Launch an actor by using the Launch Actor method, which is available on the <strong>Functions</strong> palette. Refer to the following code in the Load App VI for an example of launching a top-level actor:</p>
+
+<img src="loc_launch_top_level_actor.png">
+
+<p class="Body">Refer to the following code in the Actor Core method of the <em>Project_Name</em> class for an example of launching a nested actor:</p>
+
+<img src="loc_launch_nested_actors.png">
+
+<a name="create_message"></a><h3>Creating Messages </h3>
+
+<p class="Body">A message is a LabVIEW class that instructs an actor to invoke one of its methods. Complete the following steps to create a message for an actor:</p>
+
+<ol>
+	<li>Ensure you have opened a LabVIEW project that contains the actor.</li>
+	<li>Launch the <strong>Actor Framework Message Maker</strong> dialog box:<br><br><img src="loc_af_message_maker.png"></li>
+	<li>Select the method for which you want to create a message. For example:<br><br><img src="loc_create_message_list.png"></li>
+	<li>Click <strong>Build Selected</strong>. After you click this button, LabVIEW creates <em>method</em> Msg.lvclass, where <em>method</em> is the method you selected, and inserts it in the <strong>Project Explorer</strong> window. For example:<br><br><img src="loc_created_message.png"><br><br>LabVIEW also opens the VIs for the members of the class, where:
+		<ul>
+			<li><strong><em>method</em> Msg.lvclass:<em>method</em> Msg.ctl</strong> is private data the message can access.</li>
+			<li><strong><em>method</em> Msg.lvclass:Send <em>method</em>.vi</strong> is the VI you use to send the message to the actor.</li>
+			<li><strong><em>method</em> Msg.lvclass:Do.vi</strong> defines what the actor does when it receives this message. By default, Do.vi instructs the actor to invoke <em>method</em>.vi.</li>
+		</ul>		
+	</li>
+	<li>Customize these VIs according to the needs of your application.</li>
+	<li><a href="#send_message">Send the message</a>.</li>
+</ol>
+
+<a name="send_message"></a><h3>Sending Messages</h3>
+
+<p class="Body">To send a message, use <em>method</em> Msg.lvclass:Send <em>method</em>.vi, where <em>method</em> is the method you want the receiving actor to execute. You created Send <em>method</em>.vi when you <a href="#create_message">created the message</a>.</p>
+
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>Note</strong>&nbsp;&nbsp; Refer to <a href="#stop_actor">Stopping an Actor</a> for information about sending a Stop or Emergency Stop message.</td></tr></table>
+
+<p class="Body">In this template, refer to the following VIs for examples of sending messages:</p>
+
+<ul>
+	<li>The Actor Core method of the Beta class&#8212;Sends the Log Event message to the Application actor.</li>
+	<li>The Task method of the Beta class&#8212;Sends the Log Event message to the Application actor.</li>
+	<li>The Task method of the Alpha class&#8212;Sends the Log Event message to the Application actor.</li>
+	<li>The Actor Core method of the <em>Project_Name</em> class&#8212;
+		<ul>
+			<li>Sends the Alpha Task message to the Alpha actor.</li>
+			<li>Sends the Beta Task message to the Beta actor.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Changing What Happens When the Application Actor Sends a Message to the Alpha Actor</h3>
+
+<p class="Body">The <strong>Message to Alpha</strong> event case of the Event structure in the Actor Core method of the <em>Project_Name</em> class defines what happens when the application actor sends a message to the Alpha actor. Modify this event case according to the needs of your application.</p>
+
+<h3>Changing What Happens When the Application Actor Sends a Message to the Beta Actor</h3>
+
+<p class="Body">The <strong>Message to Beta</strong> event case of the Event structure in the Actor Core method of the <em>Project_Name</em> class defines what happens when the Application actor sends a message to the Beta actor. Modify this event case according to the needs of your application.</p>
+
+<h3>Changing What Happens when the Application Actor Stops</h3>
+
+<p class="Body">The stop behavior for the Application actor is defined in the following places:</p>
+
+<ul>
+	<li><strong>The</strong> &quot;Stop&quot;; Value Change; Panel Close <strong>event case of the
+Event structure in the Actor Core method of the <em>Project_Name</em> class</strong>&#8212;This event case sends the Stop message from the Application actor to itself:<br><br><img src="loc_stopping_actors.png"><br><br>After the Application actor receives this message, the Do VI of the Stop Msg class generates generate error code 43, indicating the actor stopped without an error, the Stop Core method of the <em>Project_Name</em> class will execute. This behavior is defined in the Actor Core method of the Actor class.</li>
+	<li><strong>The </strong>Application Instance Close <strong>event case of this same Event structure</strong>&#8212;Code in this case is guaranteed to run to completion no matter how the application shuts down. Add any required cleanup code, such as resetting hardware to safe states, in this case.</li>
+	<li><strong>The Stop Core method of the <em>Project_Name</em> class</strong>&#8212;By default, this method sends the Stop message to the Alpha and Beta actors.<br><br> If you create nested actors at the same level as Alpha and Beta, modify this VI to tell those nested actors to stop also. These actors have their own stop behaviors that you can <a href="#change_nested_actor_stop">change</a>.</li>
+</ul>
+<a name="change_nested_actor_stop"></a><h3>Changing What Happens when Alpha or Beta Stop</h3>
+
+<p class="Body">The stop behaviors for these actors are defined in the Stop Core methods of the class. By default, these methods shut down parallel tasks that were started in the actor's Actor Core method. Modify the code in these methods according to the needs of your application.</p>
+
+<p class="Body">If you modify this template such that Alpha or Beta launches any nested actors, ensure the actor's Stop Core method sends a Stop or Emergency Stop message, as appropriate, to these nested actors.</p>
+
+<h3>Changing the User Interface</h3>
+
+<p class="Body">You generally define the user interface of an actor in its Actor Core method. In this template, only the Application actor defines a user interface in its Actor Core method. The front panel of this VI is the user interface of the application. Change this user interface according to the needs of your application.</p>
+
+<h2>LabVIEW Features and Concepts Used</h2>
+<ul>	
+	<li><a href="javascript:WWW(L_AF_dialog)">Actor Framework Message Maker</a> dialog box</li>
+	<li><a href="javascript:WWW(L_AF_VIs)">Actor Framework</a> VIs</li>
+	<li><a href="javascript:WWW(L_case_structure)">Case structures</a></li>
+	<li><a href="javascript:WWW(L_clusters)">Clusters</a></li>
+	<li><a href="javascript:WWW(L_control_refnums)">Control refnums</a></li>
+	<li><a href="javascript:WWW(L_enums)">Enums</a></li>
+	<li><a href="javascript:WWW(L_error_handling)">Error clusters</a></li>
+	<li><a href="javascript:WWW(L_event_structures)">Event structures</a></li>
+	<li><a href="javascript:WWW(L_LVOOP)">LabVIEW object-oriented programming</a></li>
+	<li><a href="javascript:WWW(L_Notifiers)">Notifiers</a></li>
+	<li><a href="javascript:WWW(L_parallel)">Parallelism</a></li>
+	<li><a href="javascript:WWW(L_queues)">Queues</a></li>
+	<li><a href="javascript:WWW(L_shift_registers)">Shift registers</a></li>
+	<li><a href="javascript:WWW(L_state_machines)">State machines</a></li>
+	<li><a href="javascript:WWW(L_typedefs)">Typedefs</a></li>
+	<li><a href="javascript:WWW(L_value_change_events)">Value change events</a></li>
+	<li><a href="javascript:WWW(L_user_events)">User events</a></li>
+	<li><a href="javascript:WWW(L_while_loops)">While Loops</a></li>
+</ul>
+
+<h2>Further Reading</h2>
+<ul>
+	<li><a href="javascript:WWW(NO_LOC_AF_Community)">Actor Framework community discussion</a></li>
+	<li><a href="javascript:WWW(L_calling_convention)">Calling convention</a></li>
+	<li><a href="javascript:WWW(NO_LOC_Large_Apps)">Large LabVIEW Application Development community discussion</a></li>
+	<li><a href="javascript:WWW(NO_LOC_MAL_MVC)">Measurement Abstraction and Model-View-Controller (MVC) Project with Actor Framework in LabVIEW</a></li>
+</ul>
+
+<h2>NI Training and Certification</h2>
+<ul>
+	<li><a href="javascript:WWW(L_Adv_Arch)">Advanced Architectures in LabVIEW</a></li>
+	<li><a href="javascript:WWW(L_Core_3)">LabVIEW Core 3</a></li>
+	<li><a href="javascript:WWW(L_OO_Design)">Object-Oriented Design and Programming in LabVIEW</a></li>
+</ul>
+<hr>
+<table class="Bordered">
+<tr><th class="Bordered">Name Used in this Document</th><th class="Bordered">Qualified Filename</th></tr>
+<tr><td class="Bordered">Application Launcher library</td><td class="Bordered"><span class="DNL">Application Launcher.lvlib</span></td></tr>
+<tr><td class="Bordered">Localization VI</td><td class="Bordered"><span class="DNL">Application Launcher.lvlib:Localization.vi</span></td></tr>
+<tr><td class="Bordered">Splash Screen VI</td><td class="Bordered"><span class="DNL">Application Launcher.lvlib:Splash Screen.vi</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em> Actor library</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib</span></td></tr>
+<tr><td class="Bordered">Log Event Msg</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:Log Event Msg.lvclass</span></td></tr>
+<tr><td class="Bordered">Log Event Msg:Do VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:Log Event Msg.lvclass:Do.vi</span></td></tr>
+<tr><td class="Bordered">Log Event Msg:Send Log Event VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:Log Event Msg.lvclass:Send Log Event.vi</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em></td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em>:Actor Core VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Actor Core.vi</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em>:Load App VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Load App.vi</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em>:Localization VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Localization.vi</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em>:Log Event VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Log Event.vi</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em>:Read Config File VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Read Config File.vi</span></td></tr>
+<tr><td class="Bordered"><em>Project_Name</em>:Stop Core VI</td><td class="Bordered"><span class="DNL"><em>Project_Name</em> Actor.lvlib:<em>Project_Name</em>.lvclass:Stop Core.vi</span></td></tr>
+<tr><td class="Bordered">Alpha Actor library</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib</span></td></tr>
+<tr><td class="Bordered">Alpha Task Msg</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass</span></td></tr>
+<tr><td class="Bordered">Alpha Task Msg:Do VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass:Do.vi</span></td></tr>
+<tr><td class="Bordered">Alpha Task Msg:Send Alpha Task VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass:Send Alpha Task.vi</span></td></tr>
+<tr><td class="Bordered">Alpha Task Msg:Write Data VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha Task Msg.lvclass:Write Data.vi</span></td></tr>
+<tr><td class="Bordered">Alpha</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass</span></td></tr>
+<tr><td class="Bordered">Alpha:Actor Core VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Actor Core.vi</span></td></tr>
+<tr><td class="Bordered">Alpha:Localization VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Localization.vi</span></td></tr>
+<tr><td class="Bordered">Alpha:Stop Core VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Stop Core.vi</span></td></tr>
+<tr><td class="Bordered">Alpha:Task VI</td><td class="Bordered"><span class="DNL">Alpha Actor.lvlib:Alpha.lvclass:Task.vi</span></td></tr>
+<tr><td class="Bordered">Beta Actor library</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib</span></td></tr>
+<tr><td class="Bordered">Beta Task Msg</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta Task Msg.lvclass</span></td></tr>
+<tr><td class="Bordered">Beta Task Msg:Do VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta Task Msg.lvclass:Do.vi</span></td></tr>
+<tr><td class="Bordered">Beta Task Msg:Send Beta Task VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta Task Msg.lvclass:Send Beta Task.vi</span></td></tr>
+<tr><td class="Bordered">Beta</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass</span></td></tr>
+<tr><td class="Bordered">Beta:Actor Core VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Actor Core.vi</span></td></tr>
+<tr><td class="Bordered">Beta:Localization VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Localization.vi</span></td></tr>
+<tr><td class="Bordered">Beta:Stop Core VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Stop Core.vi</span></td></tr>
+<tr><td class="Bordered">Beta:Task VI</td><td class="Bordered"><span class="DNL">Beta Actor.lvlib:Beta.lvclass:Task.vi</span></td></tr>
+</table>
+<hr>
+<h2>Important Information</h2>
+<!--Copyright-->
+<p class="Body"><strong>Copyright</strong></p>
+<p class="Body">&#0169; 2012 National Instruments. All rights reserved.</p>
+
+<p class="Body">Under the copyright laws, this publication may not be reproduced or transmitted in any form, electronic or mechanical, including photocopying, recording, storing in an information retrieval system, or translating, in whole or in part, without the prior written consent of National Instruments Corporation.</p>
+
+<p class="Body">National Instruments respects the intellectual property of others, and we ask our users to do the same.  NI software is protected by copyright and other intellectual property laws.  Where NI software may be used to reproduce software or other materials belonging to others, you may use NI software only to reproduce materials that you may reproduce in accordance with the terms of any applicable license or other legal restriction.</p>
+
+<p class="Body"><strong>End-User License Agreements and Third-Party Legal Notices</strong></p>
+<p class="Body">You can find end-user license agreements (EULAs) and third-party legal notices in the following locations:</p>
+<ul>
+<li>Notices are located in the <span class="Monospace">&lt;National Instruments&gt;\_Legal Information</span> and <span class="Monospace">&lt;National Instruments&gt;</span> directories.</li> 
+<li>EULAs are located in the <span class="Monospace">&lt;National Instruments&gt;\Shared\MDF\Legal\license</span> directory.</li>
+<li>Review <span class="Monospace">&lt;National Instruments&gt;\_Legal Information.txt</span> for information on including legal information in installers built with NI products.</li>
+</ul>
+
+<!--Trademarks-->
+<p class="Body"><strong>Trademarks</strong></p>
+
+<p class="Body"><span class="DNL">LabVIEW</span>, <span class="DNL">National Instruments</span>, <span class="DNL">NI</span>, <span class="DNL">ni.com</span>, the <span class="DNL">National Instruments</span> corporate logo, and the Eagle logo are trademarks of <span class="DNL">National Instruments Corporation</span>. Refer to the <em><span class="DNL">Trademark Information</span></em> at <span class="Monospace">ni.com/trademarks</span> for other <a href="javascript:WWW(L_trademarks)"><span class="DNL">National Instruments</span> trademarks</a>.</p>
+
+<p class="Body">Other product and company names mentioned herein are trademarks or trade names of their respective companies.</p>
+
+<!--Patents-->
+<p class="Body"><strong>Patents</strong></p>
+<p class="Body">For patents covering the National Instruments products/technology, refer to the appropriate location: <strong>Help&#0187;Patents</strong> in your software, the <span class="Monospace">patents.txt</span> file on your media, or the <a href="javascript:WWW(L_patents)">National Instruments Patent Notice</a> at <span class="Monospace">ni.com/patents</span>.</p>
+</body>
+</html>

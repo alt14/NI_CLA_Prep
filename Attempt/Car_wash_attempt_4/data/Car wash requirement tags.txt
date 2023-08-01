@@ -1,0 +1,141 @@
+
+Entry Conosole
+Init (Enable wash steps selection buttons, FFFFF, Enable Start and set to off)
+
+
+
+Disable all
+
+
+Wash display
+Set wash indicators (off)
+Wash entry = wash vacent
+vehicle out of pos? (Green/Red)
+set Time remaining
+Turn single indicator On/Off
+
+Vehicle Position
+Set position
+Send position to controller
+
+Controller
+Start button pressed
+Wash steps selected
+
+State
+Init, Start, Wait for Vehicle Position, Wash step in progress, Wash step complete, Wash Exit, Wash Abort/Terminate
+
+Currently executing Wash step
+
+
+
+
+Moved.
+
+waiting for start...position state..time..exit
+
+
+timer(update)
+
+init [IS1..4]
+read config db
+
+wait for start button
+
+start button has been pressed?
+
+which steps were selected?
+add default
+
+list wash steps selected enum
+--> wash steps remaining
+look up station for wash step
+
+if Simulation_interface_station_position
+<>Current_step, timer(pause), vehicle_out_of_position = true
+
+if time_elapsed
+get next selected step
+	if final_step (i.e. array size =1)
+	exit
+
+
+wash_complete
+restore buttons to unpressed
+
+on exit, stop all modules
+
+
+
+wash vacant/in progress? T/F
+vehicle out of position? T/F
+
+
+
+[Covers: UI3D2]
+[Covers: UI3D3]
+[Covers: UI3D4]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[Covers: WC2]
+
+[Covers: WC3]
+[Covers: WC3A]
+[Covers: WC3B]
+[Covers: WC3C]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
